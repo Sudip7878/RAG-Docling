@@ -1,0 +1,12 @@
+docling
+langchain
+langchain-community
+langchain-chroma
+chromadb
+sentence-transformers
+pypdf
+python-dotenv
+langchain-huggingface
+langchain-groq
+streamlit
+langchain-core
