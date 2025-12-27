@@ -10,3 +10,4 @@ langchain-huggingface
 langchain-groq
 streamlit
 langchain-core
+typing-extensions
