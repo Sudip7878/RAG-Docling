@@ -23,7 +23,7 @@ txt_path = Path(TXT_DIR)
 if not txt_path.exists():
     raise FileNotFoundError(f"Folder '{TXT_DIR}' does not exist")
 
-for txt_file in txt_path.rglob("*.txt"):  # 👈 recursive
+for txt_file in txt_path.rglob("update.txt"):  # 👈 Target specific file
     print(f"Processing: {txt_file}")
 
     try:
@@ -32,7 +32,7 @@ for txt_file in txt_path.rglob("*.txt"):  # 👈 recursive
         text = txt_file.read_text(encoding="latin-1")
 
     if not text.strip():
-        print(f"⚠️ Skipping empty file: {txt_file.name}")
+        print(f"Skipping empty file: {txt_file.name}")
         continue
 
     documents.append(
@@ -51,7 +51,7 @@ print(f"Total TXT documents loaded: {len(documents)}")
 # 3. STOP if nothing loaded
 ############################################################
 if not documents:
-    raise ValueError("❌ No TXT documents found. Check Text folder.")
+    raise ValueError("No TXT documents found. Check Text folder.")
 
 ############################################################
 # 4. Chunking
@@ -81,4 +81,4 @@ vectorstore = Chroma(
 
 vectorstore.add_documents(chunks)
 
-print("✅ TXT files successfully stored in ChromaDB")
+print("TXT files successfully stored in ChromaDB")
